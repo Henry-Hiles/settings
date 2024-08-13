@@ -1,0 +1,1 @@
+ /home/quadradical/Documents/Code/quados/settings/.dart_tool/flutter_build/6dc7b19ff06e120af9692fec93660205/native_assets.yaml: 
