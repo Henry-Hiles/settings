@@ -9,12 +9,11 @@ environment:
 dependencies:
   adwaita:
     git: https://github.com/gtk-flutter/adwaita
+  dynamic_color: ^1.7.0
   flutter:
     sdk: flutter
-  flutter_acrylic: ^1.1.4
   libadwaita: ^2.0.2
   libadwaita_bitsdojo: ^0.5.5
-  yaru_window: ^0.2.1
 
 dev_dependencies:
   flutter_lints: ^4.0.0

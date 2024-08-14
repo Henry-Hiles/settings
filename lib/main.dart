@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:settings/widgets/app.dart';
-import 'package:yaru_window/yaru_window.dart';
+import 'package:window_manager/window_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final instance = await YaruWindow.ensureInitialized();
-  await instance.hideTitle();
-  await instance.setBackground(Colors.transparent);
+  await windowManager.ensureInitialized();
+  await windowManager.waitUntilReadyToShow(const WindowOptions(
+    backgroundColor: Colors.transparent,
+    titleBarStyle: TitleBarStyle.hidden,
+  ));
+
   runApp(const App());
 }

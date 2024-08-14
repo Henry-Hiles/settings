@@ -7,27 +7,24 @@ class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) => ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: MaterialApp(
-          home: AdwScaffold(
-            actions: AdwActions().bitsdojo,
-            start: [
-              AdwHeaderButton(
-                icon: const Icon(Icons.info),
-                onPressed: () {},
-              ),
-            ],
-            title: const Text("Settings"),
-            body: const AdwClamp.scrollable(
-              child: Column(
-                children: [Text("foo")],
-              ),
+  Widget build(BuildContext context) => MaterialApp(
+        home: AdwScaffold(
+          actions: AdwActions().bitsdojo,
+          start: [
+            AdwHeaderButton(
+              icon: const Icon(Icons.info),
+              onPressed: () {},
+            ),
+          ],
+          title: const Text("Settings"),
+          body: const AdwClamp.scrollable(
+            child: Column(
+              children: [Text("foo")],
             ),
           ),
-          theme: AdwaitaThemeData.light(),
-          darkTheme: AdwaitaThemeData.dark(),
-          themeMode: ThemeMode.system,
         ),
+        theme: AdwaitaThemeData.light(),
+        darkTheme: AdwaitaThemeData.dark(),
+        themeMode: ThemeMode.system,
       );
 }

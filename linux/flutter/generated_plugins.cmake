@@ -4,11 +4,10 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_linux
-  flutter_acrylic
+  gtk_theme_fl
   screen_retriever
   url_launcher_linux
   window_manager
-  yaru_window_linux
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

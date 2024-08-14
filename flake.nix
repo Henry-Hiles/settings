@@ -20,10 +20,10 @@
         system,
         ...
       }: {
-        _module.args.pkgs = import nixpkgs { inherit system; };
+        _module.args.pkgs = import nixpkgs {inherit system;};
 
-        devShells.default = pkgs.mkShell  {
-          buildInputs = with pkgs; [ flutter323 cairo ];
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [flutter323];
         };
       };
     };
