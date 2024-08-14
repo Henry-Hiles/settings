@@ -8,18 +8,22 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        home: AdwScaffold(
-          actions: AdwActions().bitsdojo,
-          start: [
-            AdwHeaderButton(
-              icon: const Icon(Icons.info),
-              onPressed: () {},
-            ),
-          ],
-          title: const Text("Settings"),
-          body: const AdwClamp.scrollable(
-            child: Column(
-              children: [Text("foo")],
+        color: Colors.transparent,
+        home: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: AdwScaffold(
+            actions: AdwActions().bitsdojo,
+            start: [
+              AdwHeaderButton(
+                icon: const Icon(Icons.info),
+                onPressed: () {},
+              ),
+            ],
+            title: const Text("Settings"),
+            body: const AdwClamp.scrollable(
+              child: Column(
+                children: [Text("foo")],
+              ),
             ),
           ),
         ),
