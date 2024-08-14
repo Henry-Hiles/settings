@@ -7,13 +7,17 @@ environment:
   sdk: ">=3.4.3 <4.0.0"
 
 dependencies:
+  adwaita:
+    git: https://github.com/gtk-flutter/adwaita
   flutter:
     sdk: flutter
+  flutter_acrylic: ^1.1.4
   libadwaita: ^2.0.2
   libadwaita_bitsdojo: ^0.5.5
+  yaru_window: ^0.2.1
 
 dev_dependencies:
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
-  uses-material-design: false
+  uses-material-design: true

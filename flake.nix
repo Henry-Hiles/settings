@@ -23,7 +23,7 @@
         _module.args.pkgs = import nixpkgs { inherit system; };
 
         devShells.default = pkgs.mkShell  {
-          buildInputs = [ pkgs.flutter ];
+          buildInputs = with pkgs; [ flutter323 cairo ];
         };
       };
     };
