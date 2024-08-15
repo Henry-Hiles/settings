@@ -9,11 +9,21 @@ environment:
 dependencies:
   adwaita:
     git: https://github.com/gtk-flutter/adwaita
+  adwaita_icons: ^0.2.1
+  dynamic_color:
+    git:
+      url: https://github.com/hasali19/material-foundation-flutter-packages
+      path: packages/dynamic_color
   flutter:
     sdk: flutter
-  libadwaita: ^2.0.2
+  libadwaita:
+    git: https://github.com/Henry-Hiles/libadwaita
   libadwaita_bitsdojo: ^0.5.5
   window_manager: ^0.4.0
+
+dependency_overrides:
+  flutter_svg: ^2.0.6
+  meta: ^1.15.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
