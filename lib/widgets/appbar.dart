@@ -28,13 +28,14 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
           (type) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: YaruWindowControl(
-                type: type,
-                onTap: switch (type) {
-                  YaruWindowControlType.close => window.close,
-                  YaruWindowControlType.maximize => window.maximize,
-                  YaruWindowControlType.minimize => window.minimize,
-                  YaruWindowControlType.restore => window.restore,
-                }),
+              type: type,
+              onTap: switch (type) {
+                YaruWindowControlType.close => window.close,
+                YaruWindowControlType.maximize => window.maximize,
+                YaruWindowControlType.minimize => window.minimize,
+                YaruWindowControlType.restore => window.restore,
+              },
+            ),
           ),
         )
         .toList();
