@@ -6,4 +6,4 @@ part 'button_layout_provider.g.dart';
 Future<String> buttonLayout(ButtonLayoutRef ref) =>
     GSettings('org.gnome.desktop.wm.preferences')
         .get("button-layout")
-        .then((dbugValue) => dbugValue.asString());
+        .then((dbusValue) => dbusValue.asString());

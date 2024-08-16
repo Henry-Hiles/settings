@@ -43,6 +43,7 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
     final decorations = ref.watch(decorationsProvider);
     final alwaysShow =
         MediaQuery.of(context).size.width < kYaruMasterDetailBreakpoint;
+
     return YaruWindowTitleBar(
       title: Text(title),
       leading: alwaysShow || isSidebar
