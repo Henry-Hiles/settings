@@ -24,10 +24,10 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final window = YaruWindow.of(context);
     List<Widget> getControl(List<YaruWindowControlType> types) => [
-          const SizedBox(width: 4),
+          const SizedBox(width: 6),
           ...types.map(
             (type) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 6),
               child: YaruWindowControl(
                 type: type,
                 onTap: switch (type) {
@@ -39,7 +39,7 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
               ),
             ),
           ),
-          const SizedBox(width: 4),
+          const SizedBox(width: 6),
         ];
 
     final decorations = ref.watch(decorationsProvider);
