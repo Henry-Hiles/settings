@@ -23,22 +23,24 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final window = YaruWindow.of(context);
-    List<Widget> getControl(List<YaruWindowControlType> types) => types
-        .map(
-          (type) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: YaruWindowControl(
-              type: type,
-              onTap: switch (type) {
-                YaruWindowControlType.close => window.close,
-                YaruWindowControlType.maximize => window.maximize,
-                YaruWindowControlType.minimize => window.minimize,
-                YaruWindowControlType.restore => window.restore,
-              },
+    List<Widget> getControl(List<YaruWindowControlType> types) => [
+          const SizedBox(width: 8),
+          ...types.map(
+            (type) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: YaruWindowControl(
+                type: type,
+                onTap: switch (type) {
+                  YaruWindowControlType.close => window.close,
+                  YaruWindowControlType.maximize => window.maximize,
+                  YaruWindowControlType.minimize => window.minimize,
+                  YaruWindowControlType.restore => window.restore,
+                },
+              ),
             ),
           ),
-        )
-        .toList();
+          const SizedBox(width: 8),
+        ];
 
     final decorations = ref.watch(decorationsProvider);
     final alwaysShow =
@@ -49,6 +51,7 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
       leading: alwaysShow || isSidebar
           ? Row(children: getControl(decorations.leading))
           : null,
+      buttonPadding: const EdgeInsets.symmetric(horizontal: 12),
       actions:
           !alwaysShow && isSidebar ? null : getControl(decorations.trailing),
       backgroundColor: isSidebar
