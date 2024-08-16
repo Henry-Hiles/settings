@@ -22,11 +22,19 @@ class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final window = YaruWindow.of(context);
     List<Widget> getControl(List<YaruWindowControlType> types) => types
         .map(
           (type) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: YaruWindowControl(type: type, onTap: () {}),
+            child: YaruWindowControl(
+                type: type,
+                onTap: switch (type) {
+                  YaruWindowControlType.close => window.close,
+                  YaruWindowControlType.maximize => window.maximize,
+                  YaruWindowControlType.minimize => window.minimize,
+                  YaruWindowControlType.restore => window.restore,
+                }),
           ),
         )
         .toList();
