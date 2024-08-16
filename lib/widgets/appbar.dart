@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:settings/providers/decorations_provider.dart';
+import 'package:yaru/yaru.dart';
+
+class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
+  final String title;
+  final bool isSidebar;
+
+  const Appbar({
+    required this.title,
+    super.key,
+  }) : isSidebar = false;
+
+  const Appbar.sidebar({
+    required this.title,
+    super.key,
+  }) : isSidebar = true;
+
+  @override
+  Size get preferredSize => const YaruWindowTitleBar().preferredSize;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    List<Widget> getControl(List<YaruWindowControlType> types) => types
+        .map(
+          (type) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: YaruWindowControl(type: type, onTap: () {}),
+          ),
+        )
+        .toList();
+
+    final decorations = ref.watch(decorationsProvider);
+    final alwaysShow =
+        MediaQuery.of(context).size.width < kYaruMasterDetailBreakpoint;
+    return YaruWindowTitleBar(
+      title: Text(title),
+      leading: alwaysShow || isSidebar
+          ? Row(children: getControl(decorations.leading))
+          : null,
+      actions:
+          !alwaysShow && isSidebar ? null : getControl(decorations.trailing),
+      backgroundColor: isSidebar
+          ? YaruMasterDetailTheme.of(context).sideBarColor
+          : Colors.transparent,
+      border: BorderSide.none,
+      style: YaruTitleBarStyle.undecorated,
+    );
+  }
+}

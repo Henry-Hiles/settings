@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:settings/widgets/app.dart';
-import 'package:window_manager/window_manager.dart';
+import 'package:yaru/yaru.dart';
 
 void main() async {
+  await YaruWindowTitleBar.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
-  await windowManager.waitUntilReadyToShow(
-    const WindowOptions(titleBarStyle: TitleBarStyle.hidden),
-  );
 
-  runApp(const App());
+  runApp(const ProviderScope(child: App()));
 }
