@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:settings/providers/decorations_provider.dart';
 import 'package:yaru/yaru.dart';
 
-class Appbar extends HookConsumerWidget implements PreferredSizeWidget {
+class Appbar extends ConsumerWidget implements PreferredSizeWidget {
   final String title;
   final bool isSidebar;
 
