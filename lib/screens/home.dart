@@ -20,7 +20,7 @@ class Home extends ConsumerWidget {
         tileBuilder: (_, index, selected, __) {
           final tab = tabs[index];
           return YaruMasterTile(
-            leading: Icon(selected ? tab.iconSelected : tab.icon),
+            leading: tab.icon,
             title: Text(tabs[index].title),
             selected: selected,
           );

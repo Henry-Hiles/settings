@@ -6,7 +6,7 @@ part of 'button_layout_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$buttonLayoutHash() => r'db244e6dbb5597edb2beac0d699fae7ec86989b3';
+String _$buttonLayoutHash() => r'fe7e1e1b5ebbe09c9edac5cf56dee5170b670623';
 
 /// See also [buttonLayout].
 @ProviderFor(buttonLayout)

@@ -2,6 +2,7 @@ import 'package:adwaita/adwaita.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yaru/yaru.dart';
 import 'package:settings/providers/button_layout_provider.dart';
 import 'package:settings/providers/warmup_provider.dart';
 import 'package:settings/screens/home.dart';
@@ -14,8 +15,12 @@ class App extends ConsumerWidget {
         home: ref
             .watch(warmupProvider(IList([buttonLayoutProvider])))
             .whenOrNull(data: (_) => const Home()),
-        theme: AdwaitaThemeData.light(),
-        darkTheme: AdwaitaThemeData.dark(),
+        theme: AdwaitaThemeData.light().copyWith(
+          textTheme: const YaruThemeData().theme?.textTheme,
+        ),
+        darkTheme: AdwaitaThemeData.dark().copyWith(
+          textTheme: const YaruThemeData().darkTheme?.textTheme,
+        ),
         debugShowCheckedModeBanner: false,
       );
 }

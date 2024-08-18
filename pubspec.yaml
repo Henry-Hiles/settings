@@ -8,11 +8,13 @@ environment:
 
 dependencies:
   adwaita: ^1.1.0
+  adwaita_icons: ^0.2.1
   collection: ^1.18.0
   fast_immutable_collections: ^10.2.4
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
+  flutter_svg: ^1.1.6
   freezed_annotation: ^2.4.4
   gsettings: ^0.2.8
   hooks_riverpod: ^2.5.1
@@ -34,3 +36,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
