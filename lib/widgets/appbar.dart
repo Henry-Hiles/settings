@@ -52,9 +52,17 @@ class Appbar extends ConsumerWidget implements PreferredSizeWidget {
 
     return YaruWindowTitleBar(
       title: Text(title),
-      leading: alwaysShow || isSidebar
-          ? Row(children: getControl(decorations.leading))
-          : null,
+      leading: Row(children: [
+        if (alwaysShow || isSidebar) ...getControl(decorations.leading),
+        if (!isSidebar && Navigator.of(context).canPop())
+          const BackButton(
+            style: ButtonStyle(
+              iconSize: WidgetStatePropertyAll(20),
+              minimumSize: WidgetStatePropertyAll(Size.square(0)),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero),
+            ),
+          ),
+      ]),
       buttonPadding: const EdgeInsets.symmetric(horizontal: 12),
       actions:
           !alwaysShow && isSidebar ? null : getControl(decorations.trailing),
