@@ -32,7 +32,11 @@ class Appbar extends ConsumerWidget implements PreferredSizeWidget {
                 type: type,
                 onTap: switch (type) {
                   YaruWindowControlType.close => window.close,
-                  YaruWindowControlType.maximize => window.maximize,
+                  YaruWindowControlType.maximize => () => window.state().then(
+                        (state) => state.isMaximized!
+                            ? window.restore()
+                            : window.maximize(),
+                      ),
                   YaruWindowControlType.minimize => window.minimize,
                   YaruWindowControlType.restore => window.restore,
                 },
