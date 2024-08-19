@@ -21,6 +21,10 @@ dependencies:
   json_annotation: ^4.9.0
   riverpod_annotation: ^2.3.5
   yaru: ^4.1.0
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding
+      path: plugins/window_size
 
 dependency_overrides:
   meta: ^1.15.0
