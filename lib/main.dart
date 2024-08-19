@@ -8,7 +8,7 @@ void main() async {
   await YaruWindowTitleBar.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
 
-  setWindowMinSize(const Size.fromRadius(250));
+  setWindowMinSize(const Size.square(500));
 
   runApp(const ProviderScope(child: App()));
 }
